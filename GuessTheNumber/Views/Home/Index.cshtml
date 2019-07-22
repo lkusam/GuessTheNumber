@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<script type="text/javascript">
+function ShowModal() {
+    $("#resultdialog").modal('show');
+}
+    </script>
+
+@model MyModel
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+<div class="card text-center">
+    <div class="card-header">
+        <h1 class="display-4">Welcome to guess the Number. </h1>
+        <h3> Please Guess the number if you dare too..</h3>
+    </div>
+    <div class="card-body">
+        <div class="input-group mb-3">
+            @Html.HiddenFor(x => x.MyNumber)
+
+            @Html.TextBoxFor(x => x.EnteredNum, new { @class = "form-control" })
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary btn-outline-secondary">Submit</button>
+                </div>
+            </div>
+    </div>
+
+</div>
+
+    @if (Model.ShowResult){
+        <div class="modal" tabindex="-1" role="dialog" id="resultdialog">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title">result</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <p>  @ViewBag.Result;</p>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Try again</button>
+        </div>
+        </div>
+        </div>
+        </div>
+        <script>ShowModal();</script>
+        }
+
+    }

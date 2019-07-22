@@ -1,0 +1,4 @@
+﻿
+Function ShowModal(){
+      $("#resultdialog").dialog();
+}
