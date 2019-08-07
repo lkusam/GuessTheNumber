@@ -20,15 +20,19 @@ function ShowModal() {
         <h1 class="display-4">Welcome to guess the Number. </h1>
         <h3> Please Guess the number if you dare too..</h3>
     </div>
+
+    @Html.ValidationMessageFor(x => x.EnteredNum, null, new { @class = "text-danger" })
     <div class="card-body">
         <div class="input-group mb-3">
             @Html.HiddenFor(x => x.MyNumber)
 
             @Html.TextBoxFor(x => x.EnteredNum, new { @class = "form-control" })
+
             <div class="input-group-append">
                 <button type="submit" class="btn btn-primary btn-outline-secondary">Submit</button>
-                </div>
             </div>
+
+        </div>
     </div>
 
 </div>
@@ -47,7 +51,13 @@ function ShowModal() {
             <p>  @ViewBag.Result;</p>
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Try again</button>
+
+            @if (Model.Success)
+    {
+    <a class="btn text-dark text-center" asp-area="" asp-controller="Home" asp-action="Index">Start Again</a>
+            }
+            else{  <button type="button" class="btn text-dark text-center" data-dismiss="modal">Try again</button>}
+
         </div>
         </div>
         </div>
