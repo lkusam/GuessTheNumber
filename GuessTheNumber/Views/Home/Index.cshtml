@@ -29,7 +29,7 @@ function ShowModal() {
             @Html.TextBoxFor(x => x.EnteredNum, new { @class = "form-control" })
 
             <div class="input-group-append">
-                <button type="submit" class="btn btn-primary btn-outline-secondary">Submit</button>
+                <button type="submit" class="btn btn-dark">Submit</button>
             </div>
 
         </div>
@@ -54,9 +54,9 @@ function ShowModal() {
 
             @if (Model.Success)
     {
-    <a class="btn text-dark text-center" asp-area="" asp-controller="Home" asp-action="Index">Start Again</a>
+    <a class="btn btn-dark" asp-area="" asp-controller="Home" asp-action="Index">Start Again</a>
             }
-            else{  <button type="button" class="btn text-dark text-center" data-dismiss="modal">Try again</button>}
+            else{  <button type="button" class="btn btn-dark text-center" data-dismiss="modal">Try again</button>}
 
         </div>
         </div>
