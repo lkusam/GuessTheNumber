@@ -14,7 +14,7 @@ namespace GuessTheNumber.ApplicationLayer
         /// </summary>
         /// <param name="_myModel"></param>
         /// <returns></returns>
-   public  string GetResult(MyModel _myModel)
+   public  string GetResult(ref MyModel _myModel)
         {
             try
             {
@@ -30,7 +30,10 @@ namespace GuessTheNumber.ApplicationLayer
                     return $"{ResultStr}  {rsltsubstr}";
                 }
                 else
+                {
+                    _myModel.Success = true;
                     return "You are Awesome";
+                }
             }
             catch (Exception ex)
             {

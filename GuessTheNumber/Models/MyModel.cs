@@ -7,11 +7,12 @@ namespace GuessTheNumber.Models
     {
         public int MyNumber { get; set; }
 
-        [Display(Name = "Enter your Number ")]
+        [Required]
         [Range( 0, 101,ErrorMessage ="The number is between 0 and 100.")]
         public int EnteredNum { get; set; }
-        public bool ShowResult { get; set; }
 
+        public bool ShowResult { get; set; }
+        public bool Success { get; set; }
 
         public void GetGuessNumber()
         {

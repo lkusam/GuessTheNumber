@@ -21,10 +21,15 @@ namespace GuessTheNumber.Controllers
    
         public IActionResult Index(MyModel mymodel)
         {
-            mymodel.ShowResult = true;
-            var resul = new Result();
-            ViewBag.Result = resul.GetResult(mymodel);
+
+            if (ModelState.IsValid)
+            {
+                mymodel.ShowResult = true;
+                var resul = new Result();
+                ViewBag.Result = resul.GetResult(ref mymodel);
+            }
             return View(mymodel);
+           
         }
         public IActionResult Privacy()
         {
