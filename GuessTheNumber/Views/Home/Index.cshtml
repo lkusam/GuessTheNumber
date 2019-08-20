@@ -18,11 +18,14 @@ function ShowModal() {
 <div class="card text-center">
     <div class="card-header">
         <h1 class="display-4">Welcome to guess the Number. </h1>
-        <h3> Please Guess the number if you dare too..</h3>
+        <h3> Please Guess the number if you dare ....</h3>
     </div>
 
-    @Html.ValidationMessageFor(x => x.EnteredNum, null, new { @class = "text-danger" })
+    @Html.ValidationMessageFor(x => x.EnteredNum, null, new { @class = "text-danger", @type = "number" })
     <div class="card-body">
+
+@*@Html.TextBoxFor(x => x.TryCounter, new { @class = "form-label", @readonly = "true"})*@
+
         <div class="input-group mb-3">
             @Html.HiddenFor(x => x.MyNumber)
 
@@ -35,6 +38,10 @@ function ShowModal() {
         </div>
     </div>
 
+</div>
+
+<div>
+    <partial name="_Rules" />
 </div>
 
     @if (Model.ShowResult){
